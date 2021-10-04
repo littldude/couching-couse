@@ -937,13 +937,30 @@ button:focus {
   .title--buy {
     width: auto;
   }
+  .title--autor {
+    color: #2C1410;
+  }
 
   .text--results {
     margin-right: 30px;
     margin-top: 15px;
   }
   .text--small {
-    width: auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin: 40px auto 30px auto;
+  }
+  .text--small::before {
+    content: "";
+    background-image: url("../img/autor/quote.svg");
+    background-size: 100%;
+    display: flex;
+    flex: 0 0 auto;
+    width: 42px;
+    height: 32px;
+    margin-right: 10px;
   }
   .text--brown::before {
     display: none;
@@ -970,6 +987,9 @@ button:focus {
     width: 35px;
     height: 12px;
     margin-left: 11px;
+  }
+  .text--name {
+    margin: 0 auto;
   }
 
   .subtitle {
@@ -1093,7 +1113,11 @@ button:focus {
   }
 
   .autor {
+    padding: 60px 0;
     background-color: #fff;
+  }
+  .autor::before, .autor::after {
+    display: none;
   }
   .autor__links {
     display: none;
@@ -1108,6 +1132,9 @@ button:focus {
   }
   .autor__item::after {
     display: none;
+  }
+  .autor__item:last-child {
+    margin-bottom: 0;
   }
   .autor__inner--d {
     display: none;
@@ -1131,7 +1158,14 @@ button:focus {
   .list__for {
     width: 80%;
   }
+  .list__autor {
+    width: 95%;
+    margin: 40px auto 0 auto;
+  }
 
+  .buy {
+    padding: 60px 0;
+  }
   .buy__inner {
     flex-direction: column;
     align-items: center;
@@ -1352,6 +1386,15 @@ button:focus {
     width: 200px;
     height: 2px;
   }
+  .text__bg {
+    font-size: 20px;
+    line-height: 36px;
+    font-weight: 800;
+  }
+  .text--name {
+    font-weight: 500;
+    text-align: center;
+  }
 
   .underline {
     position: relative;
@@ -1385,6 +1428,9 @@ button:focus {
   }
   .list__for {
     width: 90%;
+  }
+  .list__autor {
+    margin: 25px auto 0 auto;
   }
 
   .intro__img {
@@ -1428,15 +1474,39 @@ button:focus {
   }
 
   .for__inner--item {
-    width: 90%;
+    width: 100%;
   }
 
   .program__item--m {
     margin: 0 auto 5px auto;
   }
 
+  .autor {
+    padding: 60px 0 30px 0;
+  }
+  .autor__inner {
+    margin-top: 50px;
+  }
+  .autor__img {
+    width: 80%;
+  }
+  .autor__img::before {
+    top: -7px;
+    right: -7px;
+  }
+  .autor__item {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  .autor__item:last-child {
+    margin-bottom: 0;
+  }
+
   .buy {
     padding: 60px 0;
+  }
+  .buy__inner {
+    margin-top: 40px;
   }
   .buy__inner--currency {
     margin: 20px 0 50px 0;
@@ -1459,12 +1529,23 @@ button:focus {
   }
 }
 @media (max-width: 430px) {
+  .text--small {
+    width: 95%;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 20px auto 30px auto;
+  }
+
   .subtitle--time {
     width: 40%;
   }
 
   .list__special {
     width: 92%;
+  }
+
+  .autor__img {
+    width: 100%;
   }
 }
 @media (max-width: 414px) {
@@ -1531,6 +1612,12 @@ button:focus {
   .text--buy {
     font-size: 40px;
     line-height: 47px;
+  }
+  .text__bg {
+    padding: 6px;
+  }
+  .text--name {
+    width: 310px;
   }
 }
 @media (max-width: 375px) {

@@ -985,6 +985,9 @@ button:focus {
         &--buy {
             width: auto;
         }
+        &--autor {
+            color: #2C1410;
+        }
     }
     .text {
         &--results {
@@ -992,7 +995,21 @@ button:focus {
             margin-top: 15px;
         }
         &--small {
-            width: auto;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            margin: 40px auto 30px auto;
+            &::before {
+                content: '';
+                background-image: url('../img/autor/quote.svg');
+                background-size: 100%;
+                display: flex;
+                flex: 0 0 auto;
+                width: 42px;
+                height: 32px;
+                margin-right: 10px;
+            }
         }
         &--brown {
             &::before {
@@ -1023,6 +1040,9 @@ button:focus {
                 height: 12px;
                 margin-left: 11px;
             }
+        }
+        &--name {
+            margin: 0 auto;
         }
     }
     .subtitle {
@@ -1148,7 +1168,12 @@ button:focus {
         }
     }
     .autor {
+        padding: 60px 0;
         background-color: #fff;
+        &::before,
+        &::after {
+            display: none;
+        }
         &__links {
             display: none;
         }
@@ -1161,6 +1186,9 @@ button:focus {
             justify-content: center;
             &::after {
                 display: none;
+            }
+            &:last-child {
+                margin-bottom: 0;
             }
         }
         &__inner {
@@ -1188,8 +1216,13 @@ button:focus {
         &__for {
             width: 80%;
         }
+        &__autor {
+            width: 95%;
+            margin: 40px auto 0 auto;
+        }
     }
     .buy {
+        padding: 60px 0;
         &__inner {
             flex-direction: column;
             align-items: center;
@@ -1424,6 +1457,15 @@ button:focus {
                 height: 2px;
             }
         }
+        &__bg {
+            font-size: 20px;
+            line-height: 36px;
+            font-weight: 800;
+        }
+        &--name {
+            font-weight: 500;
+            text-align: center;
+        }
     }
     .underline {
         position: relative;
@@ -1460,6 +1502,9 @@ button:focus {
         }
         &__for {
             width: 90%;
+        }
+        &__autor {
+            margin: 25px auto 0 auto;
         }
     }
     .intro {
@@ -1507,7 +1552,7 @@ button:focus {
     .for {
        &__inner {
            &--item {
-               width: 90%;
+               width: 100%;
            }
        }
     }
@@ -1518,9 +1563,30 @@ button:focus {
             }
         }
     }
+    .autor {
+        padding: 60px 0 30px 0;
+        &__inner {
+            margin-top: 50px;
+        }
+        &__img {
+            width: 80%;
+            &::before {
+                top: -7px;
+                right: -7px;
+            }
+        }
+        &__item {
+            width: 100%;
+            margin-bottom: 60px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
     .buy {
         padding: 60px 0;
         &__inner {
+            margin-top: 40px;
             &--currency {
                 margin: 20px 0 50px 0;
                 .text {
@@ -1545,6 +1611,14 @@ button:focus {
     }
 }
 @media (max-width: 430px) {
+    .text {
+        &--small {
+            width: 95%;
+            font-size: 12px;
+            line-height: 18px;
+            margin: 20px auto 30px auto;
+        }
+    }
     .subtitle {
         &--time {
             width: 40%;
@@ -1553,6 +1627,11 @@ button:focus {
     .list {
         &__special {
             width: 92%;
+        }
+    }
+    .autor {
+        &__img {
+            width: 100%;
         }
     }
 }
@@ -1633,8 +1712,13 @@ button:focus {
             font-size: 40px;
             line-height: 47px;
         }
+        &__bg {
+            padding: 6px;
+        }
+        &--name {
+            width: 310px;
+        }
     }
-
 }
 @media (max-width: 375px) {
     .title {

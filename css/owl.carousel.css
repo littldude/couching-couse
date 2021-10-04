@@ -198,6 +198,9 @@
 	line-height:30px;
 	background: #DBD1C5;
 }
+.owl-prev .disabled {
+	background-color: #672424 !important;
+}
 .owl-next {
 	position:absolute;
 	bottom: 0;
@@ -211,7 +214,7 @@
 .owl-dots {
 	display: none;
 }
-@media (max-width: 1366px) {
+/* @media (max-width: 1366px) {
 	.owl-prev {
 		left: 2%;
 	}
@@ -226,4 +229,4 @@
 	.owl-item {
 		margin-left: 30px !important;
 	}
-}
+} */
