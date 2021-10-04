@@ -55,10 +55,67 @@ button:active,
 button:focus {
     outline: none;
 }
+.swiper {
+    width: 100%;
+    &-new {
+        &-wrapper {
+            position: relative;
+            width: 100%;
+        }
+    }
+    &-button {
+        &-prev {
+            width: 38px;
+            height: 38px;
+            color: #2C1410;
+            background-color: $red;
+            border-radius: 100%;
+        }
+        &-next {
+            width: 38px;
+            height: 38px;
+            color: #2C1410;
+            background-color: $red;
+            border-radius: 100%;
+        }
+    }
+}
 .container {
     margin: 0 auto;
     max-width: 1180px;
     width: 100%;
+}
+.open {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    fill: #231F20;
+    &--rotate {
+        transform: rotate(45deg) ; 
+    }
+    &:hover {
+        background-color: #85383D;
+        fill: #ffffff;
+        transition: .2s linear;
+    }
+}
+.svg {
+    display: none;
+    &--plus {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+    }
+    
 }
 .offer {
     color: #8D5A3E;
@@ -116,6 +173,10 @@ button:focus {
             right: 75px;
         }
     }
+    &--buy {
+        color: #85383D;
+        padding: 43px 0 45px 0;
+    }
 }
 .subtitle {
     font-style: normal;
@@ -152,11 +213,12 @@ button:focus {
         box-shadow: 30px 30px 30px #672424;
     }
     &--program {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 492px;
-        height: 59px;
+        display: inline;
+        //align-items: center;
+        //justify-content: center;
+        // width: 492px;
+        // height: 59px;
+        padding: 8px 16px;
         border: 1px solid #672424;
         background-color: $red;
         border-radius: 10px;
@@ -210,7 +272,7 @@ button:focus {
         margin-bottom: 30px;
     }
     &__bg {
-        padding: 2px 3px;
+        padding: 6px 18px;
         border-radius: 10px;
         &--red {
             background-color: $dark;
@@ -259,6 +321,32 @@ button:focus {
     }
     &--lmargin {
         margin-left: 45px;
+    }
+    &--price {
+        padding: 45px 0 55px 0;
+        text-align: center;
+        font-weight: 700;
+        color: #000000;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 312px;
+            height: 3px;
+            background-color: #2C1410;
+        }
+    }
+    &--buy {
+        color: #85383D;
+        font-size: 60px;
+        line-height: 56px;
+        font-weight: 800;
+    }
+    &--currency {
+        font-size: 30px;
     }
 }
 .underline {
@@ -328,14 +416,20 @@ button:focus {
             left: -120px;
         }
     }
-    &--results {
-        margin: 0 auto;
-        &::before {
-            border: 1px $dark solid;
-        }
-    }
     &--buy {
         margin: 0 auto;
+        background: #DDC6B4;
+        border: 1px solid #000000;
+        border-radius: 10px;
+        font-size: 20px;
+        line-height: 38px;
+        color: black;
+        &:hover {
+            background-color: $dark;
+            color: #ffffff;
+            transition: .2s linear;
+            border: 1px solid $dark;
+        }
     }
 }
 .list {
@@ -481,9 +575,9 @@ button:focus {
         }
     }
     &__item {
-        width: 100%;
+        width: 80%;
         background-color: #ffffff;
-        box-shadow: 5px 10px 40px #672424;
+        //box-shadow: 5px 10px 40px #672424;
         border-radius: 10px;
         padding: 73px 45px 52px 40px;
         &--block {
@@ -551,6 +645,20 @@ button:focus {
     position: relative;
     z-index: 1;
     overflow: hidden;
+    &::before {
+        content: url('../img/autor/autor-item.svg');
+        display: block;
+        position: absolute;
+        bottom: 50%;
+        left: 0px;
+    }
+    &::after {
+        content: url('../img/special/special-item.svg');
+        display: block;
+        position: absolute;
+        bottom: 50%;
+        right: -25px;
+    }
     &__links {
         margin-top: 50px;
         display: flex;
@@ -639,6 +747,44 @@ button:focus {
         margin-left: auto;
     }
 }
+.buy {
+    padding: 100px 0 120px 0;
+    &__inner {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+        &--item {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 33px 12px 104px 12px;
+            border: 1px solid #85383D;
+            box-shadow: 30px 30px 40px rgba(221, 198, 180, 0.5);
+            border-radius: 10px;
+        }
+        &--currency {
+            font-family: 'Montserrat';
+            margin: 40px 0 50px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p {
+                margin: 0;
+                &::after {
+                    content: "/";
+                    padding: 0 5px;
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
 .footer {
     background-color: $dark;
     padding: 80px 0;
@@ -698,6 +844,33 @@ button:focus {
         }
     }
 }
+@media (max-width: 1366px) {
+    .button {
+        &--intro {
+            &::before {
+                left: -110px;
+            }
+        }
+    }
+    .swiper {
+        &-new {
+            &-wrapper {
+                width: 95%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+@media (max-width: 1260px) {
+    .swiper {
+        &-new {
+            &-wrapper {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
 @media (max-width: 1190px) {
     .container {
         padding: 0 1%;
@@ -705,6 +878,13 @@ button:focus {
     .subtitle {
         &--how {
             width: 55%;
+        }
+    }
+    .button {
+        &--intro {
+            &::before {
+                display: none;
+            }
         }
     }
     .header {
@@ -794,7 +974,7 @@ button:focus {
         }
     }
 }
-@media (max-width: 991px) {
+@media (max-width: 999px) {
     .container {
         padding: 0 2%;
     }
@@ -813,6 +993,36 @@ button:focus {
         }
         &--small {
             width: auto;
+        }
+        &--brown {
+            &::before {
+                display: none;
+            }
+            &::after {
+                display: block;
+                content: "";
+                background-image: url("../img/program/triangles-brown.svg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 35px;
+                height: 12px;
+                margin-left: 11px;
+            }
+        }
+        &--red {
+            &::before {
+                display: none;
+            }
+            &::after {
+                display: block;
+                content: "";
+                background-image: url("../img/program/triangles-red.svg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 35px;
+                height: 12px;
+                margin-left: 11px;
+            }
         }
     }
     .subtitle {
@@ -884,6 +1094,59 @@ button:focus {
             }
         }
     }
+    .open {
+        display: flex;
+        flex: 0 0 auto;
+    }
+    .svg {
+        display: block;
+    }
+    .program {
+        padding: 60px 0;
+        &__links {
+            display: none;
+        }
+        &__inner {
+            &--d {
+                display: none;
+            }
+            &--m {
+                display: block;
+                //margin-bottom: 60px;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &__item {
+            &--m {
+                display: block;
+                margin: 0 auto 10px auto; 
+                width: 80%;
+                background: #DDC6B4;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+            &--header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px 19px;
+            }
+            &--body {
+                padding: 0 19px;
+                border-top: 1px #000000 solid;
+                display: none;
+            }
+        }
+        &__title {
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
     .autor {
         background-color: #fff;
         &__links {
@@ -924,6 +1187,19 @@ button:focus {
     .list {
         &__for {
             width: 80%;
+        }
+    }
+    .buy {
+        &__inner {
+            flex-direction: column;
+            align-items: center;
+            &--item {
+                width: 80%;
+                margin-bottom: 60px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 }
@@ -1002,7 +1278,7 @@ button:focus {
         }
     }
     .for {
-        padding: 60px 0 80px 0;
+        padding: 60px 0 40px 0;
         &__inner {
             margin-top: 40px;
             &--item {
@@ -1015,6 +1291,9 @@ button:focus {
                 }
             }
         }
+    }
+    .program {
+        padding: 40px 0 60px 0;
     }
     .footer {
         &__inner {
@@ -1081,6 +1360,9 @@ button:focus {
                 left: -25px;
             }
         }
+        &--buy {
+            padding: 24px 0 30px 0;
+        }
     }
     .subtitle {
         font-size: 18px;
@@ -1105,6 +1387,13 @@ button:focus {
         &--buy {
             font-size: 21px;
         }
+        &--module {
+            width: 115px;
+            height: 46px;
+            font-size: 20px;
+            font-style: italic;
+            margin: 0 auto 30px auto;
+        }
     }
     .text {
         font-size: 16px;
@@ -1121,52 +1410,18 @@ button:focus {
         &--after {
             color: #8ABBF8;
         }
-        &--course {
-            margin-bottom: 30px;
+        &--buy {
+            font-size: 44px;
+            line-height: 50px;
+        }
+        &--price {
+            padding: 40px 0 24px 0;
             &::before {
-                margin-right: 15px;
-            }
-            &:nth-of-type(1) {
-                &::before {
-                    width: 34px;
-                    height: 42px;
-                }
-            }
-            &:nth-of-type(2) {
-                &::before {
-                    width: 33px;
-                    height: 31px;
-                }
-            }
-            &:nth-of-type(3) {
-                &::before {
-                    width: 33px;
-                    height: 31px;
-                }
-            }
-            &:nth-of-type(4) {
-                &::before {
-                    width: 33px;
-                    height: 37px;
-                }
-            }
-            &:nth-of-type(5) {
-                &::before {
-                    width: 33px;
-                    height: 30px;
-                }
-            }
-            &:nth-of-type(6) {
-                &::before {
-                    width: 34px;
-                    height: 33px;
-                }
-            }
-            &:nth-of-type(7) {
-                &::before {
-                    width: 33px;
-                    height: 30px;
-                }
+                top: 56%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 200px;
+                height: 2px;
             }
         }
     }
@@ -1256,11 +1511,22 @@ button:focus {
            }
        }
     }
+    .program {
+        &__item {
+            &--m {
+                margin: 0 auto 5px auto;
+            }
+        }
+    }
     .buy {
-        &__input {
-            height: 55px;
-            font-size: 17px;
-            margin: 0 auto 15px auto;
+        padding: 60px 0;
+        &__inner {
+            &--currency {
+                margin: 20px 0 50px 0;
+                .text {
+                    font-size: 18px;
+                }
+            }
         }
     }
     .footer {
@@ -1301,6 +1567,22 @@ button:focus {
         &--for {
             padding: 8px;
             font-size: 16px;
+        }
+    }
+    .program {
+        &__item {
+            &--m {
+                width: 100%;
+            }
+        }
+    }
+    .buy {
+        &__inner {
+            &--item {
+                width: 100%;
+                margin-bottom: 40px;
+                padding: 35px 10px 80px 10px;
+            }
         }
     }
     .footer {
@@ -1344,6 +1626,12 @@ button:focus {
                 top: -5px;
                 left: -5px;
             }
+        }
+    }
+    .text {
+        &--buy {
+            font-size: 40px;
+            line-height: 47px;
         }
     }
 
