@@ -55,44 +55,15 @@ button:active,
 button:focus {
     outline: none;
 }
-.swiper {
-    width: 100%;
-    &-new {
-        &-wrapper {
-            position: relative;
-            width: 100%;
-        }
-    }
-    &-button {
-        &-prev {
-            width: 38px;
-            height: 38px;
-            color: #2C1410;
-            background-color: $red;
-            border-radius: 100%;
-        }
-        &-next {
-            width: 38px;
-            height: 38px;
-            color: #2C1410;
-            background-color: $red;
-            border-radius: 100%;
-        }
-    }
-}
-.container {
-    margin: 0 auto;
-    max-width: 1180px;
-    width: 100%;
-}
 .open {
-    display: none;
+    display: flex;
+    flex: 0 0 auto;
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
     border-radius: 100%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border: none;
     cursor: pointer;
     fill: #231F20;
@@ -116,7 +87,7 @@ button:focus {
     }
 }
 .svg {
-    display: none;
+    display: block;
     &--plus {
         display: flex;
         flex: 0 0 auto;
@@ -126,6 +97,11 @@ button:focus {
         height: 20px;
     }
     
+}
+.container {
+    margin: 0 auto;
+    max-width: 1180px;
+    width: 100%;
 }
 .offer {
     color: #8D5A3E;
@@ -215,12 +191,20 @@ button:focus {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 60px auto;
-        width: 180px;
-        height: 65px;
-        background-color: $red;
         border-radius: 10px;
-        box-shadow: 30px 30px 30px #672424;
+        margin-left: 20px;
+        position: relative;
+        z-index: 100;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 105%;
+            height: 45px;
+            background-color: $red;
+            border-radius: 10px;
+        }
     }
     &--program {
         display: inline;
@@ -366,6 +350,9 @@ button:focus {
     }
     &--currency {
         font-size: 30px;
+    }
+    &--offer {
+        font-size: 16px;
     }
 }
 .underline {
@@ -582,30 +569,51 @@ button:focus {
     }
 }
 .program {
-    background-color: $dark;
+    background-color: #ffffff;
     padding: 60px 0;
+    &__title {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     &__inner {
         margin-top: 50px;
-        &--d {
-            display: block;
-        }
-        &--m {
-            display: none;
+        margin-bottom: 80px;
+        &:last-of-type {
+            margin-bottom: 0;
         }
     }
     &__item {
-        width: 80%;
-        background-color: #ffffff;
-        border-radius: 10px;
-        padding: 73px 45px 52px 40px;
-        &--block {
+        &--m {
+            display: block;
+            margin: 0 auto 10px auto; 
+            width: 80%;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &--header {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 19px;
+            background: #DDC6B4;
+        }
+        &--body {
+            padding: 15px 19px;
+            border-bottom: 1px #ddc6b4 solid;
+            border-right: 1px #ddc6b4 solid;
+            border-left: 1px #ddc6b4 solid;
+            display: none;
+            &__active {
+                display: block;
+            }
+        }
+        &--block {
             &__text {
                 padding: 25px 0 15px 0;
-                &:last-child {
-                    padding: 25px 0 50px 0;
-                }
             }
         }
     }
@@ -801,6 +809,13 @@ button:focus {
                 }
             }
         }
+    }
+    &__small {
+        margin-top: 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 .footer {
@@ -1062,6 +1077,9 @@ button:focus {
         &--name {
             margin: 0 auto;
         }
+        &--lmargin {
+            margin-left: 0;
+        }
     }
     .subtitle {
         line-height: 36px;
@@ -1130,62 +1148,6 @@ button:focus {
                     margin-bottom: 0;
                 }
             }
-        }
-    }
-    .open {
-        display: flex;
-        flex: 0 0 auto;
-    }
-    .svg {
-        display: block;
-    }
-    .program {
-        padding: 60px 0;
-        &__links {
-            display: none;
-        }
-        &__inner {
-            &--d {
-                display: none;
-            }
-            &--m {
-                display: block;
-                //margin-bottom: 60px;
-                &:last-of-type {
-                    margin-bottom: 0;
-                }
-            }
-        }
-        &__item {
-            &--m {
-                display: block;
-                margin: 0 auto 10px auto; 
-                width: 80%;
-                background: #DDC6B4;
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-            &--header {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 15px 19px;
-            }
-            &--body {
-                padding: 0 19px;
-                border-top: 1px #000000 solid;
-                display: none;
-                &__active {
-                    display: block;
-                }
-            }
-        }
-        &__title {
-            margin: 0 auto 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
     }
     .autor {
@@ -1441,13 +1403,6 @@ button:focus {
         &--buy {
             font-size: 21px;
         }
-        &--module {
-            width: 115px;
-            height: 46px;
-            font-size: 20px;
-            font-style: italic;
-            margin: 0 auto 30px auto;
-        }
     }
     .text {
         font-size: 16px;
@@ -1541,7 +1496,6 @@ button:focus {
         height: 55px;
         font-size: 18px;
         padding: 18px 53px;
-        //border: 1px #ffffff solid;
         &--intro {
             margin-top: 25px;
         }
@@ -1584,11 +1538,23 @@ button:focus {
        }
     }
     .program {
+        &__inner {
+            margin-top: 40px;
+        }
         &__item {
             &--m {
                 margin: 0 auto 5px auto;
             }
+            &--body {
+                background-color: $red;
+                border-top: 1px #000000 solid;
+                padding: 0 19px;
+            }
         }
+    }
+    .open {
+        width: 30px;
+        height: 30px;
     }
     .autor {
         padding: 60px 0 30px 0;
@@ -1773,6 +1739,16 @@ button:focus {
                     top: 6px;
                     left: -3px;
                 }
+            }
+        }
+    }
+    .subtitle {
+        font-size: 16px;
+
+        &--module {
+            &::before {
+                height: 40px;
+                margin-left: 15px;
             }
         }
     }
