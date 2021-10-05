@@ -97,12 +97,22 @@ button:focus {
     cursor: pointer;
     fill: #231F20;
     &--rotate {
-        transform: rotate(45deg) ; 
+        transform: rotate(45deg); 
     }
     &:hover {
         background-color: #85383D;
         fill: #ffffff;
         transition: .2s linear;
+    }
+    &--active {
+        transform: rotate(45deg); 
+        background-color: #85383D;
+        fill: #ffffff;
+        &--rotate {
+            transform: rotate(90deg);
+            background-color: #ffffff; 
+            fill: #231F20;
+        }
     }
 }
 .svg {
@@ -272,13 +282,26 @@ button:focus {
         margin-bottom: 30px;
     }
     &__bg {
-        padding: 6px 18px;
-        border-radius: 10px;
         &--red {
+            padding: 6px 18px;
+            border-radius: 10px;
             background-color: $dark;
         }
         &--brown {
-            background-color: $red;
+            position: relative;
+            z-index: 100;
+            &::before {
+                content: '';
+                width: 105%;
+                height: 26px;
+                display: block;
+                background-color: $red;
+                border-radius: 10px;
+                position: absolute;
+                top: 0;
+                left: -10px;
+                z-index: -1;
+            }
         }
     }
     &--for {
@@ -672,6 +695,7 @@ button:focus {
             padding: 11px 28px;
             margin-right: 20px;
             text-align: center;
+            
             &:hover {
                 background-color: $red;
                 color: #2C1410;
@@ -704,11 +728,10 @@ button:focus {
     &__item {
         display: flex;
         align-items: flex-start;
-       //justify-content: space-between;
         width: 100%;
         padding: 91px 110px 167px 70px;
         background-color: #fff;
-        box-shadow: 9px 13px 12px #672424;
+        box-shadow: 0px 9px 4px #672424;
         border-radius: 10px;
         position: relative;
         &::after {
@@ -1158,6 +1181,9 @@ button:focus {
                 padding: 0 19px;
                 border-top: 1px #000000 solid;
                 display: none;
+                &__active {
+                    display: block;
+                }
             }
         }
         &__title {
@@ -1548,6 +1574,12 @@ button:focus {
                 right: -10px;
             }
         }
+        &__img {
+            &::before {
+                top: -7px;
+                right: -7px;
+            }
+        }
     }
     .for {
        &__inner {
@@ -1648,6 +1680,11 @@ button:focus {
             font-size: 16px;
         }
     }
+    .special {
+        &__img {
+            width: 70%;
+        }
+    }
     .program {
         &__item {
             &--m {
@@ -1714,6 +1751,11 @@ button:focus {
         }
         &__bg {
             padding: 6px;
+            &--brown {
+                &::before {
+                    top: 6px;
+                }
+            }
         }
         &--name {
             width: 310px;
@@ -1725,6 +1767,18 @@ button:focus {
         &--intro {
             font-size: 28px;
             line-height: 33px;
+        }
+    }
+    .text {
+        &__bg {
+            padding: 6px;
+            &--brown {
+                &::before {
+                    width: 100%;
+                    top: 6px;
+                    left: -3px;
+                }
+            }
         }
     }
     .intro {
@@ -1743,7 +1797,7 @@ button:focus {
     }
     .special {
         &__img {
-            width: 70%;
+            width: 80%;
         }
     }
 }

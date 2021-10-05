@@ -106,6 +106,16 @@ button:focus {
   fill: #ffffff;
   transition: 0.2s linear;
 }
+.open--active {
+  transform: rotate(45deg);
+  background-color: #85383D;
+  fill: #ffffff;
+}
+.open--active--rotate {
+  transform: rotate(90deg);
+  background-color: #ffffff;
+  fill: #231F20;
+}
 
 .svg {
   display: none;
@@ -273,15 +283,26 @@ button:focus {
 .text--program {
   margin-bottom: 30px;
 }
-.text__bg {
+.text__bg--red {
   padding: 6px 18px;
   border-radius: 10px;
-}
-.text__bg--red {
   background-color: #85383D;
 }
 .text__bg--brown {
+  position: relative;
+  z-index: 100;
+}
+.text__bg--brown::before {
+  content: "";
+  width: 105%;
+  height: 26px;
+  display: block;
   background-color: #DDC6B4;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  z-index: -1;
 }
 .text--for {
   margin-bottom: 30px;
@@ -697,7 +718,7 @@ button:focus {
   width: 100%;
   padding: 91px 110px 167px 70px;
   background-color: #fff;
-  box-shadow: 9px 13px 12px #672424;
+  box-shadow: 0px 9px 4px #672424;
   border-radius: 10px;
   position: relative;
 }
@@ -1105,6 +1126,9 @@ button:focus {
     border-top: 1px #000000 solid;
     display: none;
   }
+  .program__item--body__active {
+    display: block;
+  }
   .program__title {
     margin: 0 auto 20px auto;
     display: flex;
@@ -1472,6 +1496,10 @@ button:focus {
     top: -10px;
     right: -10px;
   }
+  .special__img::before {
+    top: -7px;
+    right: -7px;
+  }
 
   .for__inner--item {
     width: 100%;
@@ -1559,6 +1587,10 @@ button:focus {
     font-size: 16px;
   }
 
+  .special__img {
+    width: 70%;
+  }
+
   .program__item--m {
     width: 100%;
   }
@@ -1616,6 +1648,9 @@ button:focus {
   .text__bg {
     padding: 6px;
   }
+  .text__bg--brown::before {
+    top: 6px;
+  }
   .text--name {
     width: 310px;
   }
@@ -1624,6 +1659,15 @@ button:focus {
   .title--intro {
     font-size: 28px;
     line-height: 33px;
+  }
+
+  .text__bg {
+    padding: 6px;
+  }
+  .text__bg--brown::before {
+    width: 100%;
+    top: 6px;
+    left: -3px;
   }
 
   .intro__img {
@@ -1635,6 +1679,6 @@ button:focus {
   }
 
   .special__img {
-    width: 70%;
+    width: 80%;
   }
 }

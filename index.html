@@ -174,9 +174,9 @@
                 <div class="program__item--m">
                     <div class="program__item--header">
                         <p class="text">Разбираемся, что такое коучинг</p>
-                        <button class="open svg--rotate"><svg class="svg--plus"><use href="sprite.svg#cross"></use></svg></button>
+                        <button class="open open--active"><svg class="svg--plus"><use href="sprite.svg#cross"></use></svg></button>
                     </div>
-                    <div class="program__item--body">
+                    <div class="program__item--body program__item--body__active">
                         <div class="program__item--block__text">
                             <p class="text text--brown text--bold">Что это?</p>
                             <p class="text">Что такое коучинг и коучинговая позиция, какими качествами должен обладать коуч.</p>
@@ -790,7 +790,7 @@
         <div class="container">
             <h2 class="title text--center text--white title--autor">Курс ведут три специалиста</h2>
             <div class="autor__links">
-                <a href="#one" class="autor__links--item subtitle--italic">Коуч<br>
+                <a href="#one" class="autor__links--item subtitle--italic active">Коуч<br>
                     Екатерина</a>
                 <a href="#two" class="autor__links--item subtitle--italic">Коуч<br>
                     Ирина</a>
@@ -883,7 +883,7 @@
                     </div>
                     <div class="autor__text">
                         <p class="text text--name text--bold"><span class="text__bg text__bg--brown">ИРИНА НАСЕДКИНА – </span>преподаватель курса</p>
-                        <ul class="list">
+                        <ul class="list list__autor">
                         <li class="list__item list__item--circle__red"><p class="text text--bold">11 лет преподавательского опыта</p></li>
                         <li class="list__item list__item--circle__red"><p class="text">Опыт коучинговой деятельности – <span class="text--bold">2 года</span></p></li>
                         <li class="list__item list__item--circle__red"><p class="text">Сертифицированный трансформационный <span class="text--bold">женский коуч</span></p></li>
@@ -900,7 +900,7 @@
                     </div>
                     <small class="text--small">«Для меня коучинг – это не просто профессия, а образ жизни. Это возможность раскрывать и реализовывать внутренний потенциал, двигаться к своим целям не в обход, а напрямую, выстраивать более качественные и глубокие отношения с близкими и окружением».</small>
                     <p class="text text--name text--bold"><span class="text__bg text__bg--brown">АНАСТАСИЯ ТАРАСОВА – </span>преподаватель курса</p>
-                    <ul class="list">
+                    <ul class="list list__autor">
                         <li class="list__item list__item--circle__red"><p class="text text--bold">Педагогическое образование</p></li>
                         <li class="list__item list__item--circle__red"><p class="text">Куратор обучающих курсов Вадима Куркина <span class="text--bold">с 2016 года</span></p></li>
                         <li class="list__item list__item--circle__red"><p class="text">Сертифицированный <span class="text--bold">лайф-коуч с 2017 года</span> (ICU – международный союз коучей)</p></li>
@@ -976,7 +976,8 @@
             nav: true,
             loop: false,
             URLhashListener:true,
-            autoplayHoverPause:true,
+            startPosition: 'URLHash',
+            autoplayHoverPause: true,
             navText: ["<img src='img/arrows/prev.svg'>", "<img src='img/arrows/next.svg'>"],
             responsive: {
                 0: {
@@ -991,10 +992,8 @@
     </script>
     <script>
         const swiper = new Swiper('.swiper', {
-            // Optional parameters
             direction: 'horizontal',
             loop: true,
-            // Navigation arrows
             navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
@@ -1025,6 +1024,12 @@ $.getJSON("https://www.cbr-xml-daily.ru/daily_json.js", function(data) {
        $(".program__item--header").click(function() {
         $(this).next($(".text--program")).slideToggle(300);
         $(this).find('.open').toggleClass('open--rotate');
+        $(this).find('.open--active').toggleClass('open--active--rotate');
+       })
+    });
+    $(document).ready(function() {
+       $("#two").click(function() {
+        find('#one').removeClass('.active');
        })
     });
 </script>
