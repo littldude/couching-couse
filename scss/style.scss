@@ -1679,6 +1679,9 @@ button:focus {
     }
 }
 @media (max-width: 390px) {
+    .open {
+        margin-left: 5px;
+    }
     .intro {
         &__img {
             right: -120px;
@@ -1688,12 +1691,19 @@ button:focus {
         }
     }
     .subtitle {
+        font-size: 16px;
         &--intro {
             width: 225px;
         }
         &--time {
             width: 120px;
             font-size: 14px;
+        }
+        &--module {
+            margin-left: 10px;
+            &::before {
+                height: 40px;
+            }
         }
     }
     .underline {
@@ -1714,12 +1724,21 @@ button:focus {
             padding: 6px;
             &--brown {
                 &::before {
+                    width: 100%;
                     top: 6px;
+                    left: -3px;
                 }
             }
         }
         &--name {
             width: 310px;
+        }
+    }
+    .program {
+        &__item {
+            &--header {
+                padding: 15px 12px 15px 12px;
+            }
         }
     }
 }
@@ -1728,28 +1747,6 @@ button:focus {
         &--intro {
             font-size: 28px;
             line-height: 33px;
-        }
-    }
-    .text {
-        &__bg {
-            padding: 6px;
-            &--brown {
-                &::before {
-                    width: 100%;
-                    top: 6px;
-                    left: -3px;
-                }
-            }
-        }
-    }
-    .subtitle {
-        font-size: 16px;
-
-        &--module {
-            &::before {
-                height: 40px;
-                margin-left: 15px;
-            }
         }
     }
     .intro {
